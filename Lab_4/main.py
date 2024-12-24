@@ -2,11 +2,11 @@ import math
 import random
 
 # Параметры модели
-arrival_rate = 25  # Плотность потока заявок (клиентов в час)
-num_cashiers = 10   # Кол-во касс
-service_time = 0.055  # Среднее время обслуживания одного покупателя на кассе (в часах)
+arrival_rate = 5  # Плотность потока заявок (клиентов в час)
+num_cashiers = 3   # Кол-во касс
+service_time = 0.2  # Среднее время обслуживания одного покупателя на кассе (в часах)
 store_hours = 1200  # Время работы магазина в минутах
-num_simulations = 10000  # Кол-во симуляций для усреднения результатов
+num_simulations = 5500  # Кол-во симуляций для усреднения результатов
 
 # Массивы для хранения статистики
 served_customers = [0] * (num_cashiers + 1)  # Массив обслуженных клиентов на каждой кассе и потерянных клиентов
@@ -28,6 +28,7 @@ for _ in range(num_simulations):
     while current_time <= store_hours:
         # Генерация времени прихода следующего клиента
         current_time += generate_exponential_random(random.random())
+
 
         # Находим свободную кассу
         free_cashier = -1
